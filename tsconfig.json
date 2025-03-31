@@ -1,10 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true
-  }
+    "target": "ES2020",                   // Configura el objetivo de la compilación a ES2020.
+    "module": "CommonJS",                 // Usa el sistema de módulos CommonJS para el backend de Node.js.
+    "moduleResolution": "node",           // Resolución de módulos como en Node.js.
+    "esModuleInterop": true,              // Habilita la interoperabilidad entre módulos ES y CommonJS.
+    "skipLibCheck": true,                 // Omite la comprobación de los tipos en los archivos de definición de las bibliotecas.
+    "forceConsistentCasingInFileNames": true, // Asegura que las importaciones respeten el caso de los archivos.
+    "strict": true,                       // Activa las comprobaciones estrictas.
+    "noImplicitAny": true,                // Desactiva el tipo 'any' implícito.
+    "noEmitOnError": true,                // No emite archivos si hay errores de compilación.
+    "outDir": "./dist",                   // Configura la carpeta de salida para los archivos transpilados.
+    "rootDir": "./src",                   // Establece la carpeta raíz donde se encuentran tus archivos TypeScript.
+    "allowJs": true,                      // Permite la inclusión de archivos .js en la compilación si es necesario.
+    "resolveJsonModule": true,            // Permite importar archivos JSON como módulos.
+    "skipDefaultLibCheck": true,          // Omite la comprobación de tipos de las bibliotecas estándar.
+    "lib": ["es2020"],                    // Especifica las bibliotecas a usar en el proyecto, en este caso es 2020.
+    "declaration": false                  // No genera archivos .d.ts
+  },
+  "include": [
+    "src/**/*.ts"                         // Incluir todos los archivos .ts en la carpeta src.
+  ],
+  "exclude": [
+    "node_modules"                        // Excluir la carpeta node_modules de la compilación.
+  ]
 }

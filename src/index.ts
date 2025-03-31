@@ -1,14 +1,27 @@
 import express, { Request, Response } from "express";
+import cors from "cors";
+import authRoutes from "./routes/auth.routes";
 
 const app = express();
 const PORT = 3000;
 
-// Middleware para manejar JSON
+// Cors para permitir solicitudes desde el frontend
+app.use(
+  cors({
+    origin: "http://localhost:5000",
+    credentials: true,
+  })
+);
+
+// Middleware para parsear el cuerpo de las solicitudes
 app.use(express.json());
 
-// Ruta de prueba
-app.get("/", (req: Request, res: Response) => {
-  res.send("¡Hola, Bienvenido a Shaday!");
+//Rutas de la API
+app.use("/api/auth", authRoutes);
+
+// Ruta principal de la API
+app.get("/", (_: Request, res: Response) => {
+  res.send("¡Hola, Bienvenido a la API Shaday!");
 });
 
 // Iniciar el servidor
